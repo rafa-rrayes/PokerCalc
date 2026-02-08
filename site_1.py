@@ -21,9 +21,7 @@ def adicionar_carta(carta, naipe, target):
         st.session_state.cartasJogador.append(carta_full)
     elif target == "mesa" and carta_full not in st.session_state.cartasMesa:
         st.session_state.cartasMesa.append(carta_full)
-
 st.title("Calculadora de Poker")
-
 # UI elements for input
 jogadores = st.selectbox(
     'Numero de jogadores',
@@ -37,7 +35,6 @@ naipe = st.radio(
     "Naipe",
     ["Copas :hearts:", "Ouros :diamonds:", "Paus :clubs:", "Espadas :spades:"]
 )
-
 # Buttons to add a card to player's hand or to the table
 col1, col2 = st.columns(2)
 with col1:
@@ -86,7 +83,5 @@ if st.button('Calcular'):
         st.write("Outs:")
         for out, chance in probabilidade[3].items():
             st.write(f"{out}:      {round(chance, 2)} %", )
-        
-
     except:
         st.write("Ocorreu algum erro, confira se você selecionou as cartas corretamente")
